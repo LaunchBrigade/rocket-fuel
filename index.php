@@ -9,6 +9,8 @@
 				<?php do_action('rfuel_content_before'); ?>
 
 				<div class="content">
+				
+					<?php do_action('rfuel_loop_before'); ?>
 					
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -50,6 +52,8 @@
 					</article>
 
 					<?php endif; ?>
+
+					<?php do_action('rfuel_loop_after'); ?>
 
 				</div><!-- /.content -->
 

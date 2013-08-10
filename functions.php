@@ -1,9 +1,5 @@
 <?php
 /**
- * Custom functions (eventually to be put in library)
- */
-
-/**
  * Theme Setup
  */
 
@@ -17,15 +13,27 @@ add_action( 'after_setup_theme', 'rfuel_theme_setup' );
 function rfuel_theme_setup() {
 	$prefix = 'rfuel';
 
-	add_action( 'widgets_init', 'register_theme_sidebars' );
+	// Theme support
+	add_theme_support( 'automatic-feed-links' );
 
-	// Head meta
+	// Menus
+	add_action( 'init', 'register_menu_main' );
+
+	// Widget Areas
+	add_action( 'widgets_init', 'register_sidebar_primary' );
+	add_action( 'widgets_init', 'register_sidebar_subsidiary' );
+
+	// Head Actions
 	add_action( "{$prefix}_head_meta", 'template_part_meta' );
 
-	// Primary sidebar
+	// Header Actions
+	add_action( "{$prefix}_header", 'template_part_logo' );
+	add_action( "{$prefix}_header", 'get_menu_primary' );
+
+	// Sidebar Actions
 	add_action( "{$prefix}_content_after", 'template_part_sidebar_primary');
 
-	// Copyright
+	// Footer Actions
 	add_action( "{$prefix}_footer", 'template_part_sidebar_subsidiary');
 	add_action( "{$prefix}_footer", 'template_part_footer_bottom');
 }
@@ -38,8 +46,11 @@ function template_part_footer_bottom() {
 	get_template_part( 'views/footer', 'bottom' );
 }
 
-function register_theme_sidebars() {
-	// Primary
+function register_menu_main() {
+	register_nav_menu( 'primary', 'Primary' );
+}
+
+function register_sidebar_primary() {
 	register_sidebar(array(
 		'name'          => 'Primary',
 		'id'            => 'primary',
@@ -50,8 +61,9 @@ function register_theme_sidebars() {
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>'
 	));
+}
 
-	// Subsidiary
+function register_sidebar_subsidiary() {
 	register_sidebar(array(
 		'name'          => 'Subsidiary',
 		'id'            => 'subsidiary',
@@ -70,4 +82,14 @@ function template_part_sidebar_primary() {
 
 function template_part_sidebar_subsidiary() {
 	get_sidebar('subsidiary');
+}
+
+function template_part_logo() {
+	get_template_part('views/header', 'logo');
+}
+
+function get_menu_primary() {
+	wp_nav_menu( array(
+		'theme_location'  => 'primary'
+	));
 }

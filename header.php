@@ -27,7 +27,7 @@
 
 			<header class="header" role="banner">
 
-				<?php do_action('header'); ?>
+				<?php do_action('rfuel_header'); ?>
 
 			</header> <!-- end header -->
 
