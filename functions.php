@@ -33,6 +33,7 @@ function rfuel_theme_setup() {
 
 	// Content Actions
 	add_action( "{$prefix}_content_after", 'get_sidebar_primary');
+	add_action( "{$prefix}_loop", 'template_part_loop' );
 	add_action( "{$prefix}_loop_after", 'template_part_pagination' );
 
 	// Footer Actions
@@ -126,6 +127,14 @@ function get_sidebar_subsidiary() {
  */
 function template_part_logo() {
 	get_template_part('views/header', 'logo');
+}
+
+/**
+ * Get the template loop.php
+ * @return null
+ */
+function template_part_loop() {
+	get_template_part( 'views/loop' );
 }
 
 /**
