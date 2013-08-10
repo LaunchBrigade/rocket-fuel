@@ -4,7 +4,7 @@
 				Template: page.php
 			-->
 
-			<section class="main">
+			<main id="main">
 				
 				<?php do_action('rfuel_content_before'); ?>
 
@@ -52,6 +52,6 @@
 
 				<?php do_action('rfuel_content_after'); ?>
 
-			</section><!-- /.main -->
+			</main><!-- /#main -->
 
 <?php get_footer(); ?>
