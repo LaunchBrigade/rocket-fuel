@@ -33,6 +33,7 @@ function rfuel_theme_setup() {
 
 	// Content Actions
 	add_action( "{$prefix}_content_after", 'get_sidebar_primary');
+	add_action( "{$prefix}_loop_after", 'template_part_pagination' );
 
 	// Footer Actions
 	add_action( "{$prefix}_footer", 'get_sidebar_subsidiary');
@@ -125,6 +126,16 @@ function get_sidebar_subsidiary() {
  */
 function template_part_logo() {
 	get_template_part('views/header', 'logo');
+}
+
+/**
+ * Get the template content-pagination.php if active
+ * @return null
+ */
+function template_part_pagination() {
+	if ( get_previous_posts_link() or get_next_posts_link() ) {
+		get_template_part( 'views/content', 'pagination' );
+	}
 }
 
 /**

@@ -37,7 +37,7 @@
 					<article id="post-not-found" class="hentry">
 
 						<header class="article-header">
-							<h1><?php echo "Oops, Post Not Found!"; ?></h1>
+							<h1><?php echo "Oops, Page Not Found!"; ?></h1>
 						</header>
 
 						<section class="entry-content">

@@ -40,15 +40,15 @@
 					<?php else : ?>
 
 					<article id="post-not-found" class="hentry">
-							<header class="article-header">
-								<h1><?php echo "Oops, Post Not Found!"; ?></h1>
+
+						<header class="article-header">
+							<h1><?php echo "Oops, Post Not Found!"; ?></h1>
 						</header>
-							<section class="entry-content">
-								<p><?php echo "Uh Oh. Something is missing. Try double checking things."; ?></p>
+
+						<section class="entry-content">
+							<p><?php echo "Uh Oh. Something is missing. Try double checking things."; ?></p>
 						</section>
-						<footer class="article-footer">
-								<p><?php echo "This is the error message in the index.php template."; ?></p>
-						</footer>
+						
 					</article>
 
 					<?php endif; ?>

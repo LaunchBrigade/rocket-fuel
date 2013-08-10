@@ -12,7 +12,7 @@
 
 		<?php do_action('rfuel_container-after'); ?>
 
-		<!-- all js scripts are loaded in library/bones.php -->
+		<!-- WordPress footer functions -->
 		<?php wp_footer(); ?>
 
 	</body>
