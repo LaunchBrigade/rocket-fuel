@@ -11,13 +11,14 @@ add_action( 'after_setup_theme', 'rfuel_theme_setup' );
  * actions and filters.
  */
 function rfuel_theme_setup() {
+	// Prefix added to do_action hooks
 	$prefix = 'rfuel';
 
 	// Theme support
 	add_theme_support( 'automatic-feed-links' );
 
 	// Menus
-	add_action( 'init', 'register_menu_main' );
+	add_action( 'init', 'register_menu_primary' );
 
 	// Widget Areas
 	add_action( 'widgets_init', 'register_sidebar_primary' );
@@ -30,26 +31,44 @@ function rfuel_theme_setup() {
 	add_action( "{$prefix}_header", 'template_part_logo' );
 	add_action( "{$prefix}_header", 'get_menu_primary' );
 
-	// Sidebar Actions
-	add_action( "{$prefix}_content_after", 'template_part_sidebar_primary');
+	// Content Actions
+	add_action( "{$prefix}_content_after", 'get_sidebar_primary');
 
 	// Footer Actions
-	add_action( "{$prefix}_footer", 'template_part_sidebar_subsidiary');
+	add_action( "{$prefix}_footer", 'get_sidebar_subsidiary');
 	add_action( "{$prefix}_footer", 'template_part_footer_bottom');
 }
 
+/**
+ * Get template head-meta.php
+ * @return null
+ */
 function template_part_meta() {
 	get_template_part('views/head', 'meta');
 }
 
-function template_part_footer_bottom() {
-	get_template_part( 'views/footer', 'bottom' );
-}
-
-function register_menu_main() {
+/**
+ * Register primary menu
+ * @return null
+ */
+function register_menu_primary() {
 	register_nav_menu( 'primary', 'Primary' );
 }
 
+/**
+ * Get primary menu
+ * @return null
+ */
+function get_menu_primary() {
+	wp_nav_menu( array(
+		'theme_location'  => 'primary'
+	));
+}
+
+/**
+ * Register widget-area primary
+ * @return null
+ */
 function register_sidebar_primary() {
 	register_sidebar(array(
 		'name'          => 'Primary',
@@ -63,6 +82,10 @@ function register_sidebar_primary() {
 	));
 }
 
+/**
+ * Register widget-area subsidiary
+ * @return null
+ */
 function register_sidebar_subsidiary() {
 	register_sidebar(array(
 		'name'          => 'Subsidiary',
@@ -76,20 +99,38 @@ function register_sidebar_subsidiary() {
 	));
 }
 
-function template_part_sidebar_primary() {
-	get_sidebar('primary');
+/**
+ * Get the primary sidebar if active (sidebar-primary)
+ * @return null
+ */
+function get_sidebar_primary() {
+	if ( is_active_sidebar( 'primary' ) ) {
+		get_sidebar( 'primary' );
+	}
 }
 
-function template_part_sidebar_subsidiary() {
-	get_sidebar('subsidiary');
+/**
+ * Get the subsidiary sidebar if active (sidebar-subsidiary)
+ * @return null
+ */
+function get_sidebar_subsidiary() {
+	if ( is_active_sidebar( 'subsidiary' ) ) {
+		get_sidebar( 'subsidiary' );
+	}
 }
 
+/**
+ * Get the template header-logo.php
+ * @return null
+ */
 function template_part_logo() {
 	get_template_part('views/header', 'logo');
 }
 
-function get_menu_primary() {
-	wp_nav_menu( array(
-		'theme_location'  => 'primary'
-	));
+/**
+ * Get the template footer-bottom.php
+ * @return null
+ */
+function template_part_footer_bottom() {
+	get_template_part( 'views/footer', 'bottom' );
 }
