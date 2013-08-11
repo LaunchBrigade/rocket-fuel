@@ -17,6 +17,9 @@ function rfuel_theme_setup() {
 	// Theme support
 	add_theme_support( 'automatic-feed-links' );
 
+	// Scripts and styles
+	add_action( 'wp_enqueue_scripts', 'rfuel_enqueue_scripts' );
+
 	// Menus
 	add_action( 'init', 'register_menu_primary' );
 
@@ -153,4 +156,12 @@ function template_part_pagination() {
  */
 function template_part_footer_bottom() {
 	get_template_part( 'views/footer', 'bottom' );
+}
+
+/**
+ * Enqueue scripts and styles.
+ * @return null
+ */
+function rfuel_enqueue_scripts() {
+	wp_enqueue_script( 'rfuel-main', get_stylesheet_directory_uri().'/javascript/main.js', array( 'jquery' ), '1.0', true );
 }
