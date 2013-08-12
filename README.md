@@ -1,10 +1,10 @@
 #Rocket Fuel
 
-Description
+###Description
 
 Super-powered WordPress parent theme for developers.
 
-Outline
+###Outline
 
 + Hooks, hooks, hooks.
 + HTML5 structure
@@ -16,7 +16,7 @@ Outline
 + No huge blocks of code in functions.php.
   + seperated out into library folder.
 
-NOTE: Justin Tadlock (Creator of Hybrid Core/Hybrid) has created a new HTML5 parent theme, Hybrid Base. Looking at that for inspiration. So far, not seeing any hooks though.
+###Version Convention
 
 Given a version number MAJOR.MINOR.PATCH, increment the:
 
@@ -25,3 +25,8 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 3. PATCH version when you make backwards-compatible bug fixes.
 
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+
+###Inspiration
+
++ [Hybrid](https://github.com/justintadlock/hybrid)
++ [Bones](https://github.com/eddiemachado/bones)
