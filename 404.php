@@ -1,9 +1,5 @@
 <?php get_header(); ?>
 
-			<!--
-				Template: 404.php
-			-->
-
 			<main id="main">
 				
 				<?php do_action('rfuel_content_before'); ?>

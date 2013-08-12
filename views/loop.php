@@ -1,4 +1,9 @@
-<?php if (have_posts()) : while (have_posts()) : the_post(); //==========================?>
+<?php
+/**
+ * Loop Template
+ */
+
+if (have_posts()) : while (have_posts()) : the_post(); //==============================?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> role="article">
 
@@ -21,6 +26,8 @@
 
 </article> <!-- end article -->
 
+<?php do_action( 'rfuel_article' ); ?>
+
 <?php endwhile; else : //===============================================================?>
 
 <article id="post-not-found" class="hentry">
@@ -34,5 +41,7 @@
 	</section>
 
 </article>
+
+<?php do_action( 'rfuel_loop_fail' ); ?>
 
 <?php endif; //=========================================================================?>

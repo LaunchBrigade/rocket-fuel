@@ -28,6 +28,7 @@ function rfuel_theme_setup() {
 	add_action( 'widgets_init', 'register_sidebar_subsidiary' );
 
 	// Head Actions
+	add_action( "{$prefix}_html", 'template_part_html' );
 	add_action( "{$prefix}_head_meta", 'template_part_meta' );
 
 	// Header Actions
@@ -42,6 +43,14 @@ function rfuel_theme_setup() {
 	// Footer Actions
 	add_action( "{$prefix}_footer", 'get_sidebar_subsidiary');
 	add_action( "{$prefix}_footer", 'template_part_footer_bottom');
+}
+
+/**
+ * Get template html.php
+ * @return null
+ */
+function template_part_html() {
+	get_template_part('views/html');
 }
 
 /**
@@ -163,5 +172,6 @@ function template_part_footer_bottom() {
  * @return null
  */
 function rfuel_enqueue_scripts() {
+	wp_enqueue_style( 'rfuel-main', get_stylesheet_uri(), false, '1.0', 'all' );
 	wp_enqueue_script( 'rfuel-main', get_stylesheet_directory_uri().'/javascript/main.js', array( 'jquery' ), '1.0', true );
 }
