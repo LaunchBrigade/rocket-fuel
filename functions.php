@@ -146,7 +146,7 @@ function template_part_loop() {
  */
 function template_part_pagination() {
 	if ( get_previous_posts_link() or get_next_posts_link() ) {
-		get_template_part( 'views/content', 'pagination' );
+		get_template_part( 'views/loop', 'pagination' );
 	}
 }
 
