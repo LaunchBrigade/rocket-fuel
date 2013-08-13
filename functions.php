@@ -36,9 +36,10 @@ function rfuel_theme_setup() {
 	add_action( "{$prefix}_header", 'get_menu_primary' );
 
 	// Content Actions
-	add_action( "{$prefix}_content_after", 'get_sidebar_primary');
+	add_action( "{$prefix}_loop_before", 'template_part_archive_header' );
 	add_action( "{$prefix}_loop", 'template_part_loop' );
 	add_action( "{$prefix}_loop_after", 'template_part_pagination' );
+	add_action( "{$prefix}_content_after", 'get_sidebar_primary');
 
 	// Footer Actions
 	add_action( "{$prefix}_footer", 'get_sidebar_subsidiary');
@@ -134,6 +135,16 @@ function get_sidebar_subsidiary() {
 }
 
 /**
+ * Get the template archive-header.php
+ * @return null
+ */
+function template_part_archive_header() {
+	if ( is_archive() ) {
+		get_template_part('views/archive', 'header');
+	}
+}
+
+/**
  * Get the template header-logo.php
  * @return null
  */
@@ -146,7 +157,16 @@ function template_part_logo() {
  * @return null
  */
 function template_part_loop() {
-	get_template_part( 'views/loop' );
+	if ( is_home() or is_archive() ) {
+		get_template_part( 'views/loop' );
+
+	} elseif ( is_page() ) {
+		get_template_part( 'views/loop', 'page' );
+
+	} else { // is_single()
+		get_template_part( 'views/loop', 'single' );
+	}
+
 }
 
 /**
