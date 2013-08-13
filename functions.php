@@ -119,7 +119,7 @@ function register_sidebar_subsidiary() {
  * @return null
  */
 function get_sidebar_primary() {
-	if ( is_active_sidebar( 'primary' ) ) {
+	if ( !is_page_template( 'page-full.php' ) and is_active_sidebar( 'primary' ) ) {
 		get_sidebar( 'primary' );
 	}
 }

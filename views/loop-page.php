@@ -7,9 +7,11 @@ if (have_posts()) : while (have_posts()) : the_post(); //=======================
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> role="article">
 
+	<?php if ( !is_front_page() ) : ?>
 	<header class="article-header">
 		<h1 class="page-title"><?php the_title(); ?></h1>
 	</header> <!-- end article header -->
+	<?php endif; ?>
 
 	<section class="entry-content">
 		<?php the_content(); ?>
