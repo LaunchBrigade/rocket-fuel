@@ -4,7 +4,7 @@
  * Description: A powerful parent theme built for custom child theming. Utilizes action hooks to allow the child theme to override and customize with ease.
  * Author: Launch Brigade
  * Author URI: http://launchbrigade.com/
- * Version: 0.6.6
+ * Version: 0.7.6
  * Tags:
  * 
  * License:
@@ -21,6 +21,12 @@
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+img {
+	width: auto;
+	max-width: 100%;
+	height: auto;
 }
 
 #container {

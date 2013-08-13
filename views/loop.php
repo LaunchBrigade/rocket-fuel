@@ -8,12 +8,16 @@ if (have_posts()) : while (have_posts()) : the_post(); //=======================
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> role="article">
 
 	<header class="article-header">
-
+		<div class="featured-image">
+			<?php 
+			if ( has_post_thumbnail() ) {
+				the_post_thumbnail();
+			} ?>
+		</div>
 		<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 		<p class="byline vcard"><?php
 			printf( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span> <span class="amp">&</span> filed under %4$s.', get_the_time('Y-m-j'), get_the_time(get_option('date_format')), the_author(), get_the_category_list(', '));
 		?></p>
-
 	</header> <!-- end article header -->
 
 	<section class="entry-content">

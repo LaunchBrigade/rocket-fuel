@@ -1,4 +1,9 @@
 <?php
+// // Rocket Fuel functions
+// require_once( trailingslashit( get_template_directory() ) . 'library/rfuel.php' );
+// Sidebar Registration
+require_once( trailingslashit( get_template_directory() ) . 'library/sidebars.php' );
+
 /**
  * Theme Setup
  */
@@ -16,6 +21,7 @@ function rfuel_theme_setup() {
 
 	// Theme support
 	add_theme_support( 'automatic-feed-links' );
+	add_theme_support( 'post-thumbnails' );
 
 	// Scripts and styles
 	add_action( 'wp_enqueue_scripts', 'rfuel_enqueue_scripts' );
@@ -77,40 +83,6 @@ function register_menu_primary() {
 function get_menu_primary() {
 	wp_nav_menu( array(
 		'theme_location'  => 'primary'
-	));
-}
-
-/**
- * Register widget-area primary
- * @return null
- */
-function register_sidebar_primary() {
-	register_sidebar(array(
-		'name'          => 'Primary',
-		'id'            => 'primary',
-		'description'   => 'Main widget-area aside content.',
-		'class'         => 'aside widgets',
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h4>'
-	));
-}
-
-/**
- * Register widget-area subsidiary
- * @return null
- */
-function register_sidebar_subsidiary() {
-	register_sidebar(array(
-		'name'          => 'Subsidiary',
-		'id'            => 'subsidiary',
-		'description'   => 'Footer widget-area content.',
-		'class'         => 'subsidiary widgets',
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h4>'
 	));
 }
 
@@ -192,6 +164,8 @@ function template_part_footer_bottom() {
  * @return null
  */
 function rfuel_enqueue_scripts() {
-	wp_enqueue_style( 'rfuel-main', get_stylesheet_uri(), false, '1.0', 'all' );
 	wp_enqueue_script( 'rfuel-main', get_stylesheet_directory_uri().'/javascript/main.js', array( 'jquery' ), '1.0', true );
+
+	// For testing only, remove before release
+	wp_enqueue_style( 'rfuel-main', get_stylesheet_uri(), false, '1.0', 'all' );
 }
