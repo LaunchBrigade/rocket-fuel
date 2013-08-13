@@ -82,7 +82,10 @@ function register_menu_primary() {
  */
 function get_menu_primary() {
 	wp_nav_menu( array(
-		'theme_location'  => 'primary'
+		'theme_location'  => 'primary',
+		'container'       => 'nav',
+		'container_class' => 'main-nav',
+		'container_id'    => 'primary-menu',
 	));
 }
 
