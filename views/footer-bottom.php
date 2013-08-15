@@ -4,6 +4,6 @@
 	</div>
 		<div class="top-shortcut">
 				<?php $theme = wp_get_theme(); ?>
-				<p><small>Crafted by <?php echo $theme->Author; ?> <a href="#top">Top &uarr;</a></small></p>
+				<p><small>Crafted by <?php echo $theme->Author; ?> | <a href="#top">Top &uarr;</a></small></p>
 		</div>
 </div>

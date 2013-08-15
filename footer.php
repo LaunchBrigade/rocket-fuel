@@ -1,6 +1,6 @@
 			<?php do_action('rfuel_footer_before'); ?>
 
-			<footer class="footer" role="contentinfo">
+			<footer id="footer" role="contentinfo">
 
 				<?php do_action('rfuel_footer'); ?>
 
