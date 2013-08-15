@@ -4,6 +4,11 @@
 	</div>
 		<div class="top-shortcut">
 				<?php $theme = wp_get_theme(); ?>
-				<p><small>Crafted by <?php echo $theme->Author; ?> | <a href="#top">Top &uarr;</a></small></p>
+				<p>
+					<small>
+						<a href="<?php echo $theme->{'Author URI'}; ?>" title="Visit Developer Site">WordPress Website Crafted by <?php echo $theme->{'Author Name'}; ?></a> | 
+						<a href="#top">Top &uarr;</a>
+					</small>
+				</p>
 		</div>
 </div>
