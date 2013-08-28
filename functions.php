@@ -167,7 +167,7 @@ function template_part_footer_bottom() {
  * @return null
  */
 function rfuel_enqueue_scripts() {
-	wp_enqueue_script( 'rfuel-main', get_stylesheet_directory_uri().'/javascript/main.js', array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'rfuel-main', get_template_directory_uri().'/javascript/main.js', array( 'jquery' ), '1.0', true );
 
 	// For testing only, remove before release
 	wp_enqueue_style( 'rfuel-main', get_stylesheet_uri(), false, '1.0', 'all' );
