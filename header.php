@@ -3,7 +3,7 @@
 <?php do_action('rfuel_html'); ?>
 
 	<head>
-		<meta charset="utf-8">
+		<meta charset="<?php bloginfo('charset'); ?>">
 		<title><?php bloginfo('name'); ?> <?php wp_title( '|' ); ?></title>
 
 		<?php do_action('rfuel_head_meta'); ?>
