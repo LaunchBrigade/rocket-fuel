@@ -6,28 +6,35 @@
 
 		<header class="article-header">
 
-			<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+			<?php if ( !is_front_page() ) : ?>
 
+			<h1 class="page-title"><?php the_title(); ?></h1>
+			
+			<?php endif; ?>
+			
 			<?php if ( has_post_thumbnail() ) : ?>
+
 			<div class="featured-image">
+
 				<?php the_post_thumbnail(); ?>
+
 			</div>
+
 			<?php endif; ?>
 
 		</header> <!-- end article header -->
+		
 
 		<section class="entry-content">
-			<?php the_excerpt(); ?>
+
+			<?php the_content(); ?>
+
 		</section> <!-- end article section -->
-		
+
 		<footer class="article-footer">
-			<p class="meta">
-				By: <?php the_author_posts_link(); ?> | 
-				<?php the_date(); ?> | 
-				<?php the_category( ', ' ); ?>  | 
-				<a href="<?php the_permalink(); ?>#comments"><?php comments_number( 'No Comments', '1 Comment', '% Comments' ); ?></a> 
-				<a href="<?php the_permalink(); ?>">Read More</a>
-			</p>
+
+			<?php comments_template(); ?>
+
 		</footer> <!-- end article footer -->
 
 	</article> <!-- end article -->
@@ -37,11 +44,15 @@
 	<article id="post-not-found" class="hentry">
 
 		<header class="article-header">
-			<h1><?php echo "Oops, No Posts Were Found!"; ?></h1>
+
+			<h1><?php echo "Oops, No Page Was Found!"; ?></h1>
+
 		</header>
 
 		<section class="entry-content">
+
 			<p><?php echo "Uh Oh. Something is missing. Try double checking things."; ?></p>
+
 		</section>
 
 	</article>

@@ -20,6 +20,7 @@ function rfuel_theme_setup() {
 	$prefix = 'rfuel';
 
 	// Theme support
+	add_theme_support( 'html5' );
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'post-thumbnails' );
 
@@ -43,7 +44,6 @@ function rfuel_theme_setup() {
 
 	// Content Actions
 	add_action( "{$prefix}_loop_before", 'template_part_archive_header' );
-	add_action( "{$prefix}_loop", 'template_part_loop' );
 	add_action( "{$prefix}_loop_after", 'template_part_pagination' );
 	add_action( "{$prefix}_content_after", 'get_sidebar_primary');
 
@@ -128,23 +128,6 @@ function template_part_logo() {
 }
 
 /**
- * Get the template loop.php
- * @return null
- */
-function template_part_loop() {
-	if ( is_home() or is_archive() ) {
-		get_template_part( 'views/loop' );
-
-	} elseif ( is_page() ) {
-		get_template_part( 'views/loop', 'page' );
-
-	} else { // is_single()
-		get_template_part( 'views/loop', 'single' );
-	}
-
-}
-
-/**
  * Get the template content-pagination.php if active
  * @return null
  */
@@ -169,6 +152,6 @@ function template_part_footer_bottom() {
 function rfuel_enqueue_scripts() {
 	wp_enqueue_script( 'rfuel-main', get_template_directory_uri().'/javascript/main.js', array( 'jquery' ), '1.0', true );
 
-	// For testing only, remove before release
-	wp_enqueue_style( 'rfuel-main', get_stylesheet_uri(), false, '1.0', 'all' );
+	// For testing only
+	// wp_enqueue_style( 'rfuel-main', get_stylesheet_uri(), false, '1.0', 'all' );
 }

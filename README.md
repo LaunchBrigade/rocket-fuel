@@ -8,7 +8,6 @@ Super-powered WordPress parent theme for developers.
 
 + Hooks, hooks, hooks.
 + HTML5 structure
-+ Breadcrumbs
 + Threaded comments
 + Pagination
 + No styles, empty stylesheet.

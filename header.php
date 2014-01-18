@@ -29,3 +29,11 @@
 			</header> <!-- end header -->
 
 			<?php do_action('rfuel_header_after'); ?>
+
+			<main id="main">
+				
+				<?php do_action('rfuel_content_before'); ?>
+
+				<div class="content">
+
+					<?php do_action('rfuel_loop_before'); ?>

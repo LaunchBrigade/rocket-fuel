@@ -1,25 +1,21 @@
 <?php get_header(); ?>
 
-			<main id="main">
-				
-				<?php do_action('rfuel_content_before'); ?>
+	<article id="post-not-found" class="hentry">
 
-				<div class="content">
+		<header class="article-header">
 
-					<article id="post-not-found" class="hentry">
-							<header class="article-header">
-								<h1>404 - Article Not Found.</h1>
-						</header>
-							<section class="entry-content">
-								<p>The article you were looking for was not found, but maybe try looking again!</p>
-								<p><?php get_search_form(); ?></p>
-						</section>
-					</article>
+			<h1>404 - Page Not Found.</h1>
 
-				</div><!-- /.content -->
+		</header>
 
-				<?php do_action('rfuel_content_after'); ?>
+		<section class="entry-content">
 
-			</main><!-- /#main -->
+			<p>The article you were looking for was not found, but maybe try looking again!</p>
+
+			<p><?php get_search_form(); ?></p>
+
+		</section>
+
+	</article>
 
 <?php get_footer(); ?>

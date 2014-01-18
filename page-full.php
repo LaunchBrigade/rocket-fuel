@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Full-Width
- * A page template that disables the primary sidebar.
+ * A page template that disables the asides.
  */
 
 get_header(); ?>
