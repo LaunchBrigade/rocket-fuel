@@ -1,5 +1,5 @@
 /*===================================================
- Warning: Must be included at end of HTML document.
+ Warning: Must be loaded at end of HTML document.
  ==================================================*/
 
 /**

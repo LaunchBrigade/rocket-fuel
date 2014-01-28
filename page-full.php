@@ -6,22 +6,63 @@
 
 get_header(); ?>
 
-			<main id="main">
-				
-				<?php do_action('rfuel_content_before'); ?>
+	<?php if (have_posts()) : while (have_posts()) : the_post(); //==========================?>
 
-				<div class="content">
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> role="article">
 
-					<?php do_action('rfuel_loop_before'); ?>
+		<header class="article-header">
 
-					<?php do_action('rfuel_loop'); ?>
+			<?php if ( !is_front_page() ) : ?>
 
-					<?php do_action('rfuel_loop_after'); ?>
+			<h1 class="page-title"><?php the_title(); ?></h1>
+			
+			<?php endif; ?>
+			
+			<?php if ( has_post_thumbnail() ) : ?>
 
-				</div><!-- /.content -->
+			<div class="featured-image">
 
-				<?php do_action('rfuel_content_after'); ?>
+				<?php the_post_thumbnail(); ?>
 
-			</main><!-- /#main -->
+			</div>
+
+			<?php endif; ?>
+
+		</header> <!-- end article header -->
+		
+
+		<section class="entry-content">
+
+			<?php the_content(); ?>
+
+		</section> <!-- end article section -->
+
+		<footer class="article-footer">
+
+			<?php comments_template(); ?>
+
+		</footer> <!-- end article footer -->
+
+	</article> <!-- end article -->
+
+	<?php endwhile; else : //===============================================================?>
+
+	<article id="post-not-found" class="hentry">
+
+		<header class="article-header">
+
+			<h1><?php echo "Oops, No Page Was Found!"; ?></h1>
+
+		</header>
+
+		<section class="entry-content">
+
+			<p><?php echo "Uh Oh. Something is missing. Try double checking things."; ?></p>
+
+		</section>
+
+	</article>
+
+	<?php endif; //=========================================================================?>
 
 <?php get_footer(); ?>
