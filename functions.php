@@ -1,6 +1,6 @@
 <?php
 // // Rocket Fuel functions
-// require_once( trailingslashit( get_template_directory() ) . 'library/rfuel.php' );
+require_once( trailingslashit( get_template_directory() ) . 'library/rfuel.php' );
 // Sidebar Registration
 require_once( trailingslashit( get_template_directory() ) . 'library/sidebars.php' );
 

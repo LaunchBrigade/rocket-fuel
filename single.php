@@ -35,11 +35,9 @@
 		<footer class="article-footer">
 
 			<p class="meta">
-				By: <?php the_author(); ?> | 
+				By: <?php the_author_posts_link(); ?> | 
 				<?php the_date(); ?> | 
-				<?php the_category( ', ' ); ?>  | 
-				<?php comments_number( 'No Comments', '1 Comment', '% Comments' ); ?> 
-				<a href="<?php the_permalink(); ?>">Read More</a>
+				<?php the_category( ', ' ); ?>
 			</p>
 
 			<?php comments_template(); ?>
