@@ -1,6 +1,6 @@
 <div class="footer-bottom">
 	<div class="copyright">
-		<p><small>&copy; 2013 <?php bloginfo( 'name' ); ?>. All Rights Reserved.</small></p>
+		<p><small>&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. All Rights Reserved.</small></p>
 	</div>
 		<div class="top-shortcut">
 				<?php $theme = wp_get_theme(); ?>
