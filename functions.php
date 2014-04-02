@@ -28,35 +28,35 @@ function rfuel_theme_setup() {
 	add_action( 'wp_enqueue_scripts', 'rfuel_enqueue_scripts' );
 
 	// Menus
-	add_action( 'init', 'register_menu_primary' );
+	add_action( 'init', 'rfuel_register_menu_primary' );
 
 	// Widget Areas
-	add_action( 'widgets_init', 'register_sidebar_primary' );
-	add_action( 'widgets_init', 'register_sidebar_subsidiary' );
+	add_action( 'widgets_init', 'rfuel_register_sidebar_primary' );
+	add_action( 'widgets_init', 'rfuel_register_sidebar_subsidiary' );
 
 	// Head Actions
-	add_action( "{$prefix}_html", 'template_part_html' );
-	add_action( "{$prefix}_head_meta", 'template_part_meta' );
+	add_action( "{$prefix}_html", 'rfuel_get_html_tag' );
+	add_action( "{$prefix}_head_meta", 'rfuel_get_meta' );
 
 	// Header Actions
-	add_action( "{$prefix}_header", 'template_part_logo' );
-	add_action( "{$prefix}_header", 'get_menu_primary' );
+	add_action( "{$prefix}_header", 'rfuel_get_logo' );
+	add_action( "{$prefix}_header", 'rfuel_get_menu_primary' );
 
 	// Content Actions
-	add_action( "{$prefix}_loop_before", 'template_part_archive_header' );
-	add_action( "{$prefix}_loop_after", 'template_part_pagination' );
-	add_action( "{$prefix}_content_after", 'get_sidebar_primary');
+	add_action( "{$prefix}_loop_before", 'rfuel_get_archive_header' );
+	add_action( "{$prefix}_loop_after", 'rfuel_get_pagination' );
+	add_action( "{$prefix}_content_after", 'rfuel_get_sidebar_primary');
 
 	// Footer Actions
-	add_action( "{$prefix}_footer", 'get_sidebar_subsidiary');
-	add_action( "{$prefix}_footer", 'template_part_footer_bottom');
+	add_action( "{$prefix}_footer", 'rfuel_get_sidebar_subsidiary');
+	add_action( "{$prefix}_footer", 'rfuel_get_footer_bottom');
 }
 
 /**
  * Get template html.php
  * @return null
  */
-function template_part_html() {
+function rfuel_get_html_tag() {
 	get_template_part('views/html');
 }
 
@@ -64,7 +64,7 @@ function template_part_html() {
  * Get template head-meta.php
  * @return null
  */
-function template_part_meta() {
+function rfuel_get_meta() {
 	get_template_part('views/head', 'meta');
 }
 
@@ -72,7 +72,7 @@ function template_part_meta() {
  * Register primary menu
  * @return null
  */
-function register_menu_primary() {
+function rfuel_register_menu_primary() {
 	register_nav_menu( 'primary', 'Primary' );
 }
 
@@ -80,7 +80,7 @@ function register_menu_primary() {
  * Get primary menu
  * @return null
  */
-function get_menu_primary() {
+function rfuel_get_menu_primary() {
 	wp_nav_menu( array(
 		'theme_location'  => 'primary',
 		'container'       => 'nav',
@@ -93,8 +93,8 @@ function get_menu_primary() {
  * Get the primary sidebar if active (sidebar-primary)
  * @return null
  */
-function get_sidebar_primary() {
-	if ( !is_page_template( 'page-full.php' ) and is_active_sidebar( 'primary' ) ) {
+function rfuel_get_sidebar_primary() {
+	if ( is_active_sidebar( 'primary' ) ) {
 		get_sidebar( 'primary' );
 	}
 }
@@ -103,7 +103,7 @@ function get_sidebar_primary() {
  * Get the subsidiary sidebar if active (sidebar-subsidiary)
  * @return null
  */
-function get_sidebar_subsidiary() {
+function rfuel_get_sidebar_subsidiary() {
 	if ( is_active_sidebar( 'subsidiary' ) ) {
 		get_sidebar( 'subsidiary' );
 	}
@@ -113,7 +113,7 @@ function get_sidebar_subsidiary() {
  * Get the template archive-header.php
  * @return null
  */
-function template_part_archive_header() {
+function rfuel_get_archive_header() {
 	if ( is_archive() ) {
 		get_template_part('views/archive', 'header');
 	}
@@ -123,7 +123,7 @@ function template_part_archive_header() {
  * Get the template header-logo.php
  * @return null
  */
-function template_part_logo() {
+function rfuel_get_logo() {
 	get_template_part('views/header', 'logo');
 }
 
@@ -131,7 +131,7 @@ function template_part_logo() {
  * Get the template content-pagination.php if active
  * @return null
  */
-function template_part_pagination() {
+function rfuel_get_pagination() {
 	if ( get_previous_posts_link() or get_next_posts_link() ) {
 		get_template_part( 'views/loop', 'pagination' );
 	}
@@ -141,7 +141,7 @@ function template_part_pagination() {
  * Get the template footer-bottom.php
  * @return null
  */
-function template_part_footer_bottom() {
+function rfuel_get_footer_bottom() {
 	get_template_part( 'views/footer', 'bottom' );
 }
 
