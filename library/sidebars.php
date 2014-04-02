@@ -3,7 +3,7 @@
  * Register widget-area primary
  * @return null
  */
-function register_sidebar_primary() {
+function rfuel_register_sidebar_primary() {
 	register_sidebar(array(
 		'name'          => 'Primary',
 		'id'            => 'primary',
@@ -20,7 +20,7 @@ function register_sidebar_primary() {
  * Register widget-area subsidiary
  * @return null
  */
-function register_sidebar_subsidiary() {
+function rfuel_register_sidebar_subsidiary() {
 	register_sidebar(array(
 		'name'          => 'Subsidiary',
 		'id'            => 'subsidiary',
