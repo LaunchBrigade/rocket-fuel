@@ -6,7 +6,7 @@
 
 		<header class="article-header">
 
-			<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+			<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 
 			<?php if ( has_post_thumbnail() ) : ?>
 
@@ -17,6 +17,12 @@
 			</div>
 			
 			<?php endif; ?>
+			
+			<p class="meta">
+				By: <?php the_author_posts_link(); ?> | 
+				<?php the_date(); ?> | 
+				<?php the_category( ', ' ); ?>
+			</p>
 
 		</header> <!-- end article header -->
 
@@ -33,12 +39,6 @@
 		</section> <!-- end article section -->
 
 		<footer class="article-footer">
-
-			<p class="meta">
-				By: <?php the_author_posts_link(); ?> | 
-				<?php the_date(); ?> | 
-				<?php the_category( ', ' ); ?>
-			</p>
 
 			<?php comments_template(); ?>
 
