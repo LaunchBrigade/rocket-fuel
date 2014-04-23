@@ -4,7 +4,7 @@
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> role="article">
 
-		<?php get_archive_content(); ?>
+		<?php rfuel_get_archive_content(); ?>
 
 	</article> <!-- end article -->
 

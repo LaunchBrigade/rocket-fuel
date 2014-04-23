@@ -1,6 +1,6 @@
 <header class="article-header">
 
-	<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+	<h3><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
 	<?php if ( has_post_thumbnail() ) : ?>
 	<div class="featured-image">
