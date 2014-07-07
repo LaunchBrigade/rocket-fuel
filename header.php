@@ -4,7 +4,7 @@
 
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>">
-		<title><?php bloginfo('name'); ?> <?php wp_title( '|' ); ?></title>
+		<title><?php wp_title(''); ?></title>
 
 		<?php do_action('rfuel_head_meta'); ?>
 
