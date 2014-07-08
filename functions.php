@@ -151,4 +151,5 @@ function rfuel_get_footer_bottom() {
  */
 function rfuel_enqueue_scripts() {
 	wp_enqueue_script( 'rfuel-main', get_template_directory_uri().'/javascript/main.js', array( 'jquery' ), '1.0', true );
+	if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 }
