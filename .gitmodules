@@ -1,0 +1,3 @@
+[submodule "library/plugin-activation"]
+	path = library/plugin-activation
+	url = https://github.com/thomasgriffin/TGM-Plugin-Activation.git

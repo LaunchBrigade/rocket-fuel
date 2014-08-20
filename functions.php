@@ -1,8 +1,10 @@
 <?php
-// // Rocket Fuel functions
+/**
+ * Rocket Fuel Library Functions
+ * - Sidebar
+ * - TGM Plugin Activation
+ */
 require_once( trailingslashit( get_template_directory() ) . 'library/rfuel.php' );
-// Sidebar Registration
-require_once( trailingslashit( get_template_directory() ) . 'library/sidebars.php' );
 
 /**
  * Theme Setup
