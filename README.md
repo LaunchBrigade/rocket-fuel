@@ -1,10 +1,10 @@
-#Rocket Fuel
+# Rocket Fuel
 
-###Description
+### Description
 
 Super-powered WordPress parent theme for developers.
 
-###Outline
+### Outline
 
 + Hooks, hooks, hooks.
 + HTML5 structure
@@ -15,7 +15,7 @@ Super-powered WordPress parent theme for developers.
 + No huge blocks of code in functions.php.
   + seperated out into library folder.
 
-###Version Convention
+### Version Convention
 
 Given a version number MAJOR.MINOR.PATCH, increment the:
 
@@ -25,7 +25,7 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
-###Inspiration
+### Inspiration
 
 + [Hybrid](https://github.com/justintadlock/hybrid)
 + [Bones](https://github.com/eddiemachado/bones)
