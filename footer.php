@@ -1,8 +1,10 @@
-					<?php do_action('rfuel_loop_after'); ?>
+						<?php do_action('rfuel_loop_after'); ?>
 
-				</div><!-- /.content -->
+					</div><!-- /.content -->
 
-				<?php do_action('rfuel_content_after'); ?>
+					<?php do_action('rfuel_content_after'); ?>
+
+				</div><!-- /.container -->
 
 			</main><!-- /#main -->
 

@@ -31,9 +31,11 @@
 			<?php do_action('rfuel_header_after'); ?>
 
 			<main id="main">
-				
-				<?php do_action('rfuel_content_before'); ?>
 
-				<div class="content">
+				<div class="container">
 
-					<?php do_action('rfuel_loop_before'); ?>
+					<?php do_action('rfuel_content_before'); ?>
+
+					<div class="content">
+
+						<?php do_action('rfuel_loop_before'); ?>

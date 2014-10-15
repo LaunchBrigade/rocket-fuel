@@ -4,7 +4,7 @@
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> role="article">
 
-		<?php get_archive_content(); ?>
+		<?php rfuel_get_archive_content(); ?>
 
 	</article> <!-- end article -->
 
@@ -13,11 +13,11 @@
 	<article id="post-not-found" class="hentry">
 
 		<header class="article-header">
-			<h1>No Results Were Found!</h1>
+			<h1>Oops, No Posts Were Found!</h1>
 		</header>
 
 		<section class="entry-content">
-			<p>Couldn't find what you were looking for? Try double checking your search or entering something else.</p>
+			<p>Uh Oh. Something is missing. Try double checking things.</p>
 			<p><?php get_search_form(); ?></p>
 		</section>
 

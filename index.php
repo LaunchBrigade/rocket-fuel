@@ -13,11 +13,11 @@
 	<article id="post-not-found" class="hentry">
 
 		<header class="article-header">
-			<h1><?php echo "Oops, No Posts Were Found!"; ?></h1>
+			<h1>Oops, No Posts Were Found!</h1>
 		</header>
 
 		<section class="entry-content">
-			<p><?php echo "Uh Oh. Something is missing. Try double checking things."; ?></p>
+			<p>Uh Oh. Something is missing. Try double checking things.</p>
 		</section>
 
 	</article>
