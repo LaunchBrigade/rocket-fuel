@@ -2,15 +2,15 @@
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); //==========================?>
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> role="article">
+	<article id="post-<?php the_ID(); ?>" <?php post_class('article'); ?> role="article">
 
-		<header class="article-header">
+		<header class="article_header">
 
 			<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 
 			<?php if ( has_post_thumbnail() ) : ?>
 
-			<div class="featured-image">
+			<div class="article_featured-image">
 
 				<?php the_post_thumbnail(); ?>
 
@@ -18,7 +18,7 @@
 			
 			<?php endif; ?>
 			
-			<p class="meta">
+			<p class="article_meta">
 				By: <?php the_author_posts_link(); ?> | 
 				<?php the_date(); ?> | 
 				<?php the_category( ', ' ); ?>
@@ -26,7 +26,7 @@
 
 		</header> <!-- end article header -->
 
-		<section class="entry-content">
+		<section class="article_entry-content">
 
 			<?php the_content(); ?>
 			
@@ -48,15 +48,15 @@
 
 	<?php endwhile; else : //===============================================================?>
 
-	<article id="post-not-found" class="hentry">
+	<article id="post-not-found" class="article hentry">
 
-		<header class="article-header">
+		<header class="article_header">
 
 			<h1><?php echo "Oops, No Post Was Found!"; ?></h1>
 
 		</header>
 
-		<section class="entry-content">
+		<section class="article_entry-content">
 
 			<p><?php echo "Uh Oh. Something is missing. Try double checking things."; ?></p>
 

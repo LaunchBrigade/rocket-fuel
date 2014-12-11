@@ -10,7 +10,7 @@
 
 			<?php do_action('rfuel_footer_before'); ?>
 
-			<footer id="footer" role="contentinfo">
+			<footer class="page_footer" role="contentinfo">
 
 				<?php do_action('rfuel_footer'); ?>
 

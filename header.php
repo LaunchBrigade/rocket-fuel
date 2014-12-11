@@ -18,11 +18,11 @@
 
 		<?php do_action('rfuel_container_before'); ?>
 
-		<div id="container">
+		<div class="page_container">
 
 			<?php do_action('rfuel_header_before'); ?>
 
-			<header id="header" role="banner">
+			<header class="page_header" role="banner">
 
 				<?php do_action('rfuel_header'); ?>
 
@@ -30,12 +30,12 @@
 
 			<?php do_action('rfuel_header_after'); ?>
 
-			<main id="main">
+			<main class="page_main">
 
-				<div class="container">
+				<div class="main_container">
 
 					<?php do_action('rfuel_content_before'); ?>
 
-					<div class="content">
+					<div class="main_content">
 
 						<?php do_action('rfuel_loop_before'); ?>

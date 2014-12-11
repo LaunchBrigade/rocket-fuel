@@ -24,55 +24,55 @@ img {
 	height: auto;
 }
 
-#container {
+.page_container {
 	width: 940px;
 	margin: 0 auto;
 }
 
-#main {
+.page_main {
 	*zoom: 1;
 }
 
-#main:before,
-#main:after {
+.page_main:before,
+.page_main:after {
 	content: " ";
 	display: table;
 }
 
-#main:after {
+.page_main:after {
 	clear: both;
 }
 
-.content {
+.main_content {
 	width: 75%;
 	float: left;
 }
 
-body.page-template-page-full-php .content {
+body.page-template-page-full-php .main_content {
 	width: 100%;
 	float: none;
 }
 
-#primary {
+.page_primary {
 	width: 25%;
 	float: right;
 }
 
-#subsidiary {
+.page_subsidiary {
 	*zoom: 1;
 }
 
-#subsidiary:before,
-#subsidiary:after {
+.page_subsidiary:before,
+.page_subsidiary:after {
 	content: " ";
 	display: table;
 }
 
-#subsidiary:after {
+.page_subsidiary:after {
 	clear: both;
 }
 
-#subsidiary > section {
+.page_subsidiary > section {
 	width: 25%;
 	float: left;
 }

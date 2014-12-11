@@ -1,5 +1,5 @@
-<div class="footer-bottom">
-	<div class="copyright">
+<div class="footer-end">
+	<div class="site-copyright">
 		<p><small>&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. All Rights Reserved.</small></p>
 	</div>
 		<div class="top-shortcut">
