@@ -2,7 +2,13 @@
 
 ### Description
 
-Super-powered WordPress parent theme for developers.
+Super-powered [Foundation, Gulp, Bower&#8230;] WordPress starter theme for developers. Made with &hearts; by Launch Brigade.
+
+### Getting Started
+0. Install [Nodejs](http://nodejs.org/), [Gulp](http://gulpjs.com/) (globally), and [Bower](http://bower.io/) (globally).
+0. Clone this theme into the WordPress theme directory.
+0. Run command `make` to install npm and bower dependencies, and compile necessary files.
+0. Build the next awesome WordPress theme.
 
 ### Outline
 

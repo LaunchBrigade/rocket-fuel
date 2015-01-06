@@ -1,0 +1,19 @@
+/**
+ * Variables & Functions
+ * @description File contains custom variables and functions as well as overrides for Foundation.
+ */
+
+// If you want to set the base font-size
+//$rem-base: 16px;
+
+// Get access to Foundation functions
+@import "foundation/functions";
+
+// Functions
+@function test($test) {
+	@return $test;
+}
+
+// Variables
+$primary-color: #ff0000;
+$topbar-sticky-class: ".sticky-nav";

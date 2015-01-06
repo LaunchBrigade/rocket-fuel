@@ -2,7 +2,7 @@
 /**
  * Rocket Fuel Library Functions
  * - Sidebar
- * - TGM Plugin Activation
+ * - Custom Walkers
  */
 require_once( trailingslashit( get_template_directory() ) . 'library/rfuel.php' );
 
@@ -41,8 +41,7 @@ function rfuel_theme_setup() {
 	add_action( "{$prefix}_head_meta", 'rfuel_get_meta' );
 
 	// Header Actions
-	add_action( "{$prefix}_header", 'rfuel_get_logo' );
-	add_action( "{$prefix}_header", 'rfuel_get_menu_primary' );
+	add_action( "{$prefix}_header", 'rfuel_get_header_nav' );
 
 	// Content Actions
 	add_action( "{$prefix}_loop_before", 'rfuel_get_archive_header' );
@@ -52,6 +51,22 @@ function rfuel_theme_setup() {
 	// Footer Actions
 	add_action( "{$prefix}_footer", 'rfuel_get_sidebar_subsidiary');
 	add_action( "{$prefix}_footer", 'rfuel_get_footer_bottom');
+}
+
+/**
+ * Enqueue scripts and styles.
+ * @return null
+ */
+function rfuel_enqueue_scripts() {
+	if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
+
+	wp_enqueue_style( 'app', get_template_directory_uri().'/css/app.css', false, '1.0.0', 'all' );
+	wp_enqueue_script( 'foundation-modernizr', get_template_directory_uri().'/bower_components/foundation/js/vendor/modernizr.js', false, '', false );
+
+	wp_enqueue_script( 'foundation-jquery', get_template_directory_uri().'/bower_components/foundation/js/vendor/jquery.js', false, '', true );
+	wp_enqueue_script( 'foundation-fastclick', get_template_directory_uri().'/bower_components/foundation/js/vendor/fastclick.js', false, '', true );
+	wp_enqueue_script( 'foundation', get_template_directory_uri().'/bower_components/foundation/js/foundation.min.js', array( 'foundation-jquery' ), '', true );
+	wp_enqueue_script( 'main', get_template_directory_uri().'/javascript/main.js', array( 'foundation-jquery', 'foundation' ), '1.0.0', true );
 }
 
 /**
@@ -76,19 +91,6 @@ function rfuel_get_meta() {
  */
 function rfuel_register_menu_primary() {
 	register_nav_menu( 'primary', 'Primary' );
-}
-
-/**
- * Get primary menu
- * @return null
- */
-function rfuel_get_menu_primary() {
-	wp_nav_menu( array(
-		'theme_location'  => 'primary',
-		'container'       => 'nav',
-		'container_class' => 'main-nav',
-		'container_id'    => 'primary-menu',
-	));
 }
 
 /**
@@ -122,14 +124,6 @@ function rfuel_get_archive_header() {
 }
 
 /**
- * Get the template header-logo.php
- * @return null
- */
-function rfuel_get_logo() {
-	get_template_part('views/header', 'logo');
-}
-
-/**
  * Get the template content-pagination.php if active
  * @return null
  */
@@ -147,11 +141,25 @@ function rfuel_get_footer_bottom() {
 	get_template_part( 'views/footer', 'bottom' );
 }
 
-/**
- * Enqueue scripts and styles.
- * @return null
- */
-function rfuel_enqueue_scripts() {
-	wp_enqueue_script( 'rfuel-main', get_template_directory_uri().'/javascript/main.js', array( 'jquery' ), '1.0', true );
-	if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
+function rfuel_get_header_nav() {
+	get_template_part( 'views/header', 'nav' );
+}
+
+function get_foundation_menu() {
+	$args = array(
+		'theme_location' => 'primary',    // where it's located in the theme
+		'container' => false,             // remove menu container
+		'container_class' => '',          // class of container
+		'menu' => '',                     // menu name
+		'menu_class' => '',               // adding custom nav class
+		'before' => '',                   // before each link <a>
+		'after' => '',                    // after each link </a>
+		'link_before' => '',              // before each link text
+		'link_after' => '',               // after each link text
+		'depth' => 3,                     // limit the depth of the nav
+		'fallback_cb' => false,           // fallback function (see below)
+		'walker' => new Navbar_Walker()   // walker to customize menu
+	);
+
+	wp_nav_menu($args);
 }

@@ -1,78 +1,9 @@
 /**
  * Theme Name: Rocket Fuel
  * Theme URI: http://launchbrigade.com/labs/rocket-fuel/
- * Description: A powerful parent theme built for custom child theming. Utilizes action hooks to allow the child theme to override and customize with ease.
+ * Description: A powerful starter theme built & tested by the Launch Brigade team.
  * Author: Launch Brigade
  * Author URI: http://www.launchbrigade.com/
- * Version: 1.0.1
+ * Version: 2.0.0
  * Tags: featured-images, custom-menu, microformats, threaded-comments
 **/
-
-
-/* Styles for testing */
-*,
-*:before,
-*:after {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-img {
-	width: auto;
-	max-width: 100%;
-	height: auto;
-}
-
-#container {
-	width: 940px;
-	margin: 0 auto;
-}
-
-#main {
-	*zoom: 1;
-}
-
-#main:before,
-#main:after {
-	content: " ";
-	display: table;
-}
-
-#main:after {
-	clear: both;
-}
-
-.content {
-	width: 75%;
-	float: left;
-}
-
-body.page-template-page-full-php .content {
-	width: 100%;
-	float: none;
-}
-
-#primary {
-	width: 25%;
-	float: right;
-}
-
-#subsidiary {
-	*zoom: 1;
-}
-
-#subsidiary:before,
-#subsidiary:after {
-	content: " ";
-	display: table;
-}
-
-#subsidiary:after {
-	clear: both;
-}
-
-#subsidiary > section {
-	width: 25%;
-	float: left;
-}
