@@ -1,0 +1,8 @@
+all:
+	@npm install
+	@bower install
+	@gulp
+
+update:
+	@npm update
+	@bower update
