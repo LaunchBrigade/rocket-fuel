@@ -2,7 +2,9 @@
 
 ### Description
 
-Super-powered [Foundation, Gulp, Bower&#8230;] WordPress starter theme for developers. Made with &hearts; by Launch Brigade.
+Super-powered [Foundation, Gulp, Bower&#8230;] WordPress starter theme for developers.
+
+Made with &hearts; by Launch Brigade.
 
 ### Getting Started
 0. Install [Nodejs](http://nodejs.org/), [Gulp](http://gulpjs.com/) (globally), and [Bower](http://bower.io/) (globally).

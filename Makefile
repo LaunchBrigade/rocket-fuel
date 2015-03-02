@@ -1,3 +1,4 @@
+# Automates theme dependency installation and updating
 all:
 	@npm install
 	@bower install

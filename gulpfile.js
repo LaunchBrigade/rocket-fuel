@@ -16,8 +16,8 @@ var argv = require('minimist')(process.argv.slice(3), {
 });
 
 var paths = {
-	sass: 'scss/**/*.scss',
-	css: 'css'
+	sass: 'assets/scss/**/*.scss',
+	css: 'assets/css'
 };
 
 gulp.task('browser-sync', function() {

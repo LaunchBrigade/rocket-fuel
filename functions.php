@@ -60,13 +60,13 @@ function rfuel_theme_setup() {
 function rfuel_enqueue_scripts() {
 	if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 
-	wp_enqueue_style( 'app', get_template_directory_uri().'/css/app.css', false, '1.0.0', 'all' );
+	wp_enqueue_style( 'app', get_template_directory_uri().'/assets/css/app.css', false, '1.0.0', 'all' );
 	wp_enqueue_script( 'foundation-modernizr', get_template_directory_uri().'/bower_components/foundation/js/vendor/modernizr.js', false, '', false );
 
 	wp_enqueue_script( 'foundation-jquery', get_template_directory_uri().'/bower_components/foundation/js/vendor/jquery.js', false, '', true );
 	wp_enqueue_script( 'foundation-fastclick', get_template_directory_uri().'/bower_components/foundation/js/vendor/fastclick.js', false, '', true );
 	wp_enqueue_script( 'foundation', get_template_directory_uri().'/bower_components/foundation/js/foundation.min.js', array( 'foundation-jquery' ), '', true );
-	wp_enqueue_script( 'main', get_template_directory_uri().'/javascript/main.js', array( 'foundation-jquery', 'foundation' ), '1.0.0', true );
+	wp_enqueue_script( 'main', get_template_directory_uri().'/assets/javascript/main.js', array( 'foundation-jquery', 'foundation' ), '1.0.0', true );
 }
 
 /**
@@ -74,7 +74,7 @@ function rfuel_enqueue_scripts() {
  * @return null
  */
 function rfuel_get_html_tag() {
-	get_template_part('views/html');
+	get_template_part('partials/html');
 }
 
 /**
@@ -82,7 +82,7 @@ function rfuel_get_html_tag() {
  * @return null
  */
 function rfuel_get_meta() {
-	get_template_part('views/head', 'meta');
+	get_template_part('partials/head', 'meta');
 }
 
 /**
@@ -119,7 +119,7 @@ function rfuel_get_sidebar_subsidiary() {
  */
 function rfuel_get_archive_header() {
 	if ( is_archive() ) {
-		get_template_part('views/archive', 'header');
+		get_template_part('partials/archive', 'header');
 	}
 }
 
@@ -129,7 +129,7 @@ function rfuel_get_archive_header() {
  */
 function rfuel_get_pagination() {
 	if ( get_previous_posts_link() or get_next_posts_link() ) {
-		get_template_part( 'views/loop', 'pagination' );
+		get_template_part( 'partials/loop', 'pagination' );
 	}
 }
 
@@ -138,11 +138,11 @@ function rfuel_get_pagination() {
  * @return null
  */
 function rfuel_get_footer_bottom() {
-	get_template_part( 'views/footer', 'bottom' );
+	get_template_part( 'partials/footer', 'bottom' );
 }
 
 function rfuel_get_header_nav() {
-	get_template_part( 'views/header', 'nav' );
+	get_template_part( 'partials/header', 'nav' );
 }
 
 function get_foundation_menu() {
