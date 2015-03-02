@@ -9,6 +9,6 @@
     "bower_components"
   ],
   "dependencies": {
-    "foundation": "5.4.2"
+    "foundation": "5.5.1"
   }
 }

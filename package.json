@@ -15,7 +15,7 @@
     "browser-sync": "*",
     "gulp": "*",
     "gulp-autoprefixer": "*",
-    "gulp-sass": "1.1.0",
+    "gulp-sass": "1.3.3",
     "gulp-util": "*",
     "minimist": "*"
   }
