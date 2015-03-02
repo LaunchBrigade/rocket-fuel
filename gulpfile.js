@@ -22,8 +22,9 @@ var paths = {
 
 gulp.task('browser-sync', function() {
 	bsync({
-		// Adjust to domain
-		proxy: "example.com"
+		/* Uncomment and change to domain */
+		// proxy: "example.com",
+    open: false
 	});
 });
 
