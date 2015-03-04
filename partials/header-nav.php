@@ -9,6 +9,6 @@
   </ul>
 
   <section class="top-bar-section">
-    <?php get_foundation_menu(); ?>
+    <?php rfuel_get_navbar_menu(); ?>
   </section>
 </nav>
