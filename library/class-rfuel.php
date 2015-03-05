@@ -48,7 +48,14 @@ class RFuel {
 	 * Tegister plugins with TGMPA
 	 */
 	public function register_plugins() {
-		$plugins = array();
+		$plugins = array(
+			array(
+				'name' => 'Developer',
+				'slug' => 'developer',
+				'required' => false
+			)
+		);
+
 		$config = array();
 
 		tgmpa( $plugins, $config );
