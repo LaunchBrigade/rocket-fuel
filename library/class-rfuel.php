@@ -1,6 +1,7 @@
 <?php
 
 $dir_path = trailingslashit( get_template_directory() . '/library' );
+require_once( $dir_path . 'class-tgm-plugin-activation.php' ); // TGM_Plugin_Activation
 require_once( $dir_path . 'class-navbar-walker.php' ); // Navbar_Walker
 
 class RFuel {
@@ -13,6 +14,9 @@ class RFuel {
 		add_theme_support( 'html5' );
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'post-thumbnails' );
+
+		// Register plugins
+		add_action( 'tgmpa_register', array( $this, 'register_plugins' ) );
 
 		// Scripts and styles
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -38,6 +42,16 @@ class RFuel {
 		// Footer Actions
 		add_action( "rfuel_footer", array( $this, 'get_sidebar_subsidiary' ) );
 		add_action( "rfuel_footer", array( $this, 'get_footer_bottom' ) );
+	}
+
+	/**
+	 * Tegister plugins with TGMPA
+	 */
+	public function register_plugins() {
+		$plugins = array();
+		$config = array();
+
+		tgmpa( $plugins, $config );
 	}
 
 	/**
