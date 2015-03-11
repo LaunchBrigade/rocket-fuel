@@ -5,6 +5,10 @@ var util = require('gulp-util');
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
 var bsync = require('browser-sync');
+var browserify = require('browserify');
+var transform = require('vinyl-transform');
+var uglify = require('gulp-uglify');
+
 var fs = require('fs');
 var argv = require('minimist')(process.argv.slice(3), {
   string: 'version',
@@ -16,7 +20,10 @@ var argv = require('minimist')(process.argv.slice(3), {
 });
 
 var paths = {
-	sass: 'assets/scss/**/*.scss',
+  srcJS: 'src/js/**/*.js',
+  mainJS: './src/js/main.js',
+  js: 'assets/js',
+	sass: 'src/scss/**/*.scss',
 	css: 'assets/css'
 };
 
@@ -55,13 +62,37 @@ gulp.task('sass-prod', function () {
 		.pipe(gulp.dest(paths.css));
 });
 
-gulp.task('default', ['sass-dev']);
+gulp.task('js-dev', function () {
+  var browserified = transform(function(filename) {
+    var b = browserify(filename);
+    return b.bundle();
+  });
 
-gulp.task('watch', ['browser-sync'], function () {
-	gulp.watch(paths.sass, ['sass-dev']);
+  return gulp.src(paths.mainJS)
+    .pipe(browserified)
+    .pipe(gulp.dest(paths.js));
 });
 
-gulp.task('build', ['sass-prod']);
+gulp.task('js-prod', function () {
+  var browserified = transform(function(filename) {
+    var b = browserify(filename);
+    return b.bundle();
+  });
+
+  return gulp.src(paths.mainJS)
+    .pipe(browserified)
+    .pipe(uglify())
+    .pipe(gulp.dest(paths.js));
+});
+
+gulp.task('default', ['sass-dev', 'js-dev']);
+
+gulp.task('watch', ['default', 'browser-sync'], function () {
+	gulp.watch(paths.sass, ['sass-dev']);
+  gulp.watch(paths.srcJS, ['js-dev']);
+});
+
+gulp.task('build', ['sass-prod', 'js-prod']);
 
 gulp.task('set-version', function () {
   if (argv.version) {

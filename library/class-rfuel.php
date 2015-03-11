@@ -73,7 +73,7 @@ class RFuel {
 		wp_enqueue_script( 'foundation-jquery', get_template_directory_uri().'/bower_components/foundation/js/vendor/jquery.js', false, '', true );
 		wp_enqueue_script( 'foundation-fastclick', get_template_directory_uri().'/bower_components/foundation/js/vendor/fastclick.js', false, '', true );
 		wp_enqueue_script( 'foundation', get_template_directory_uri().'/bower_components/foundation/js/foundation.min.js', array( 'foundation-jquery' ), '', true );
-		wp_enqueue_script( 'main', get_template_directory_uri().'/assets/javascript/main.js', array( 'foundation-jquery', 'foundation' ), '1.0.0', true );
+		wp_enqueue_script( 'main', get_template_directory_uri().'/assets/js/main.js', array( 'foundation-jquery', 'foundation' ), '1.0.0', true );
 	}
 
 	/**
