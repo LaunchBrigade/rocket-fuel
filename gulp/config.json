@@ -1,0 +1,35 @@
+{
+  "bsync": {
+    "open": false,
+    "proxy": "example.com"
+  },
+  "sass": {
+    "paths": {
+      "sass": "src/scss/**/*.scss",
+    	"css": "assets/css"
+    },
+    "errLogToConsole": true,
+    "paths": [
+      "bower_components/foundation/scss"
+    ],
+    "dev": {
+      "sourceComments": "map"
+    },
+    "prod": {
+      "outputStyle": "compressed"
+    }
+  },
+  "js": {
+    "paths": {
+      "src": "src/js/**/*.js",
+      "main": "./src/js/main.js",
+      "js": "assets/js"
+    },
+    "dev": {
+      "uglify": false
+    },
+    "prod": {
+      "uglify": true
+    }
+  }
+}
