@@ -1,4 +1,17 @@
 {
+  "minimist": {
+    "string": "env",
+    "string": "version",
+    "boolean": "force",
+    "default": {
+      "env": "dev"
+    },
+    "alias": {
+      "e": "env",
+      "v": "version",
+      "f": "force"
+    }
+  },
   "bsync": {
     "open": false,
     "proxy": "example.com"
@@ -8,15 +21,19 @@
       "sass": "src/scss/**/*.scss",
     	"css": "assets/css"
     },
-    "errLogToConsole": true,
-    "paths": [
-      "bower_components/foundation/scss"
-    ],
     "dev": {
-      "sourceComments": "map"
+      "errLogToConsole": true,
+      "sourceComments": "map",
+      "includePaths": [
+        "bower_components/foundation/scss"
+      ]
     },
     "prod": {
-      "outputStyle": "compressed"
+      "errLogToConsole": true,
+      "outputStyle": "compressed",
+      "includePaths": [
+        "bower_components/foundation/scss"
+      ]
     }
   },
   "js": {
