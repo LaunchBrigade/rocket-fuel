@@ -26,10 +26,12 @@ class RFuel {
 
 		// Widget Areas
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
+		add_action( 'wp', array( $this, 'sidebars_template_home' ) );
 
 		// Head Actions
 		add_action( "rfuel_html", array( $this, 'get_html_tag' ) );
 		add_action( "rfuel_head_meta", array( $this, 'get_meta' ) );
+		add_filter( 'body_class', array( $this, 'add_body_class_sidebar' ) );
 
 		// Header Actions
 		add_action( "rfuel_header", array( $this, 'get_header_nav' ) );
@@ -42,6 +44,21 @@ class RFuel {
 		// Footer Actions
 		add_action( "rfuel_footer", array( $this, 'get_sidebar_subsidiary' ) );
 		add_action( "rfuel_footer", array( $this, 'get_footer_bottom' ) );
+	}
+
+	/**
+	 * Is sidebar registered and active
+	 * @param  string  $id ID name of sidebar
+	 * @return boolean     True = registered and active
+	 */
+	private function is_active_sidebar( $id ) {
+		global $wp_registered_sidebars;
+
+		if ( array_key_exists( $id, $wp_registered_sidebars ) && is_active_sidebar( $id ) ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -112,12 +129,30 @@ class RFuel {
 		));
 	}
 
+	public function sidebars_template_home() {
+		if ( is_page_template( 'templates/home.php' ) ) {
+			unregister_sidebar( 'primary' );
+		}
+	}
+
 	public function get_html_tag() {
 		get_template_part('partials/html');
 	}
 
 	public function get_meta() {
 		get_template_part('partials/head', 'meta');
+	}
+
+	public function add_body_class_sidebar( $classes ) {
+		if ( $this->is_active_sidebar( 'primary' ) ) {
+			$classes[] = 'aside-primary';
+		}
+
+		if ( $this->is_active_sidebar( 'subsidiary' ) ) {
+			$classes[] = 'aside-subsidiary';
+		}
+
+		return $classes;
 	}
 
 	public function get_header_nav() {
@@ -137,13 +172,13 @@ class RFuel {
 	}
 
 	public function get_sidebar_primary() {
-		if ( is_active_sidebar( 'primary' ) ) {
+		if ( $this->is_active_sidebar( 'primary' ) ) {
 			get_sidebar( 'primary' );
 		}
 	}
 
 	public function get_sidebar_subsidiary() {
-		if ( is_active_sidebar( 'subsidiary' ) ) {
+		if ( $this->is_active_sidebar( 'subsidiary' ) ) {
 			get_sidebar( 'subsidiary' );
 		}
 	}
