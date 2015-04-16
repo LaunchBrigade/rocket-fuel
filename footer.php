@@ -20,7 +20,7 @@
 
 		</div> <!-- end #container -->
 
-		<?php do_action('rfuel_container-after'); ?>
+		<?php do_action('rfuel_container_after'); ?>
 
 		<!-- WordPress footer functions -->
 		<?php wp_footer(); ?>
