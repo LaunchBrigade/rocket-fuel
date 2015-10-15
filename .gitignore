@@ -1,4 +1,5 @@
 *.log
+*.swp
 .sass-cache
 /node_modules
 /bower_components
