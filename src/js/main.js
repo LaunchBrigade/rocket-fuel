@@ -1,8 +1,4 @@
-/*===================================================
- Warning: Must be loaded at end of HTML document.
- ==================================================*/
-var Test = require('./test');
-
+(function($) {
 /**
  * Smoothly animates internal page links.
  * @return {null}
@@ -19,18 +15,17 @@ $('a[href*=#]:not([href=#])').click(function(event) {
 		}
 	}
 });
+})(jQuery);
 
-/**
- * Main Javascript file for the theme
- */
+(function($) {
+	/**
+	 * Main Javascript file for the theme
+	 */
 
-$(document).foundation({
-	topbar: {
-		sticky_class: 'sticky-nav',
-		mobile_show_parent_link: true
-	}
-});
-
-// Browserify test
-var test = new Test();
-test.getMsg();
+	$(document).foundation({
+		topbar: {
+			sticky_class: 'sticky-nav',
+			mobile_show_parent_link: true
+		}
+	});
+})(jQuery);
