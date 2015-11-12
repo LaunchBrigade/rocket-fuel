@@ -3,6 +3,7 @@
 $dir_path = trailingslashit( get_template_directory() . '/library' );
 require_once( $dir_path . 'class-tgm-plugin-activation.php' ); // TGM_Plugin_Activation
 require_once( $dir_path . 'class-navbar-walker.php' ); // Navbar_Walker
+require_once( $dir_path . 'class-acf.php' ); // Advanced custom fields
 
 class RFuel {
 
@@ -15,6 +16,9 @@ class RFuel {
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'post-thumbnails' );
 
+		//ACF::init();
+		add_action( 'init', array( 'RfuelACF', 'init' ) );
+
 		// Register plugins
 		add_action( 'tgmpa_register', array( $this, 'register_plugins' ) );
 
@@ -23,6 +27,9 @@ class RFuel {
 
 		// Menus
 		add_action( 'init', array( $this, 'register_menus' ) );
+
+		//Allowed mime types
+		add_filter('upload_mimes', array( $this, 'cc_mime_types' ));
 
 		// Widget Areas
 		add_action( 'widgets_init', array( $this, 'register_sidebars' ) );
@@ -79,6 +86,15 @@ class RFuel {
 	}
 
 	/**
+	 * Allowed Mime Types
+	 */
+	public function cc_mime_types($mimes)
+	{
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
+	}
+
+	/**
 	 * Enqueue scripts & styles
 	 */
 	public function enqueue_scripts() {
@@ -87,8 +103,8 @@ class RFuel {
 		wp_enqueue_style( 'app', get_template_directory_uri().'/assets/css/app.css', false, '1.0.0', 'all' );
 		wp_enqueue_script( 'foundation-modernizr', get_template_directory_uri().'/bower_components/foundation/js/vendor/modernizr.js', false, '', false );
 		wp_enqueue_script( 'foundation-fastclick', get_template_directory_uri().'/bower_components/foundation/js/vendor/fastclick.js', false, '', true );
-		wp_enqueue_script( 'foundation', get_template_directory_uri().'/bower_components/foundation/js/foundation.min.js', false, '', true );
-		wp_enqueue_script( 'main', get_template_directory_uri().'/assets/js/main.js', array('foundation'), '1.0.0', true );
+		wp_enqueue_script( 'foundation', get_template_directory_uri().'/bower_components/foundation/js/foundation.min.js', array('jquery'), '', true );
+		wp_enqueue_script( 'main', get_template_directory_uri().'/assets/js/main.js', array('jquery', 'foundation'), '1.0.0', true );
 	}
 
 	/**
